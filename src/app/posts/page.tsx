@@ -16,6 +16,7 @@ interface PostsResponse {
 
 // Server Component
 export default async function Posts() {
+  await new Promise((resolve) => setTimeout(resolve, 6000)); // Simulate a delay
   const response = await fetch("https://dummyjson.com/posts", {
     cache: "force-cache",
     next: {
