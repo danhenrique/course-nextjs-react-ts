@@ -2,7 +2,7 @@
 import { Button } from "@/components/button";
 import { Metadata } from "next";
 import Link from "next/link";
-import { PostProps } from "./_components/post";
+import { Post, PostProps } from "./_components/post";
 
 interface PostsResponse {
   posts: PostProps[];
@@ -10,7 +10,7 @@ interface PostsResponse {
 
 // Server Component
 export default async function Posts() {
-  await new Promise((resolve) => setTimeout(resolve, 6000)); // Simulate a delay
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a 2 seconds delay
   const response = await fetch("https://dummyjson.com/posts", {
     cache: "force-cache",
     next: {
@@ -56,12 +56,7 @@ export default async function Posts() {
       <div className="p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6">
           {data.posts.map((post) => (
-            <div key={post.id} className="border rounded-lg p-4 shadow-md">
-              <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
-              <p className="text-gray-600">{post.body}</p>
-              <p className="text-sm text-gray-500 mt-2">Author ID: {post.userId}</p>
-              <Link href={`/posts/${post.id}`} className="text-blue-500">Ver</Link>
-            </div>
+            <Post key={post.id} post={post} />
           ))}
         </div>
       </div>

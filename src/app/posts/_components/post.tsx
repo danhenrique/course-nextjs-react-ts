@@ -8,7 +8,6 @@ export interface PostProps {
 }
 
 export async function Post({ post, showLink = true }: { post: PostProps, showLink?: boolean }) {
-  await new Promise((resolve) => setTimeout(resolve, 6000)); // Simulate a delay
   return (
     <div className="max-w-2xl px-8 py-4 bg-white rounded-lg shadow-md dark:bg-gray-800">
       <div className="flex items-center justify-between">
