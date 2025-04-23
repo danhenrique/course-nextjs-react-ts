@@ -2,16 +2,10 @@
 import { Button } from "@/components/button";
 import { Metadata } from "next";
 import Link from "next/link";
-
-export interface PostsProps {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
+import { PostProps } from "./_components/post";
 
 interface PostsResponse {
-  posts: PostsProps[];
+  posts: PostProps[];
 }
 
 // Server Component
